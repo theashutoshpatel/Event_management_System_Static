@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login for Events</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo_remove.png" style="height: 20px; width: 20px;">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: #6c757d;
+        }
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        .otp-display {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .timer {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .success-message {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+            color: #28a745;
+            font-size: 1rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animated-heading {
+            animation: slideIn 1s ease-in-out;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="vh-100">
+        <form id="loginForm">
+        <div class="container py-5 h-100">
+            <div class="animated-heading">Book Your Event Tickets Now!</div>
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                        class="img-fluid" alt="Phone image">
+                </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <form id="otpForm">
+                        <!-- Generate OTP Button -->
+                        <div class="mb-4">
+                            <button type="button" id="generateBtn" onclick="OTPFn()" class="btn btn-primary btn-lg btn-block">
+                                Generate OTP
+                            </button>
+                        </div>
+
+                        <!-- OTP Input -->
+                        <div data-mdb-input-init class="form-outline mb-4 otp-form" style="display: none;">
+                            <input type="text" id="userOTP" class="form-control form-control-lg"
+                                placeholder="Enter OTP">
+                        </div>
+
+                        <!-- Verify OTP Button -->
+                        <div class="d-flex justify-content-between">
+                            <button type="button" onclick="OTPVerifyFn()" class="btn btn-primary btn-lg">
+                                Verify OTP
+                            </button>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div id="successMessage" class="success-message mt-3">
+                            <i class="fas fa-check-circle fa-2x"></i>
+                            <p>Congratulations! OTP is Verified!</p>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div id="errorMessage" class="error-message"></div>
+
+                        <!-- Timer -->
+                        <div id="timer" class="timer"></div>
+
+                        <!-- Generated OTP Display -->
+                        <div id="otpDisplay" class="otp-display"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </form>
+    </section>
+
+    <script>
+        let otpGen;
+        let timer;
+        let secondsRemaining = 10;
+
+        function OTPFn() {
+            const btn = document.getElementById('generateBtn');
+            btn.disabled = true;
+            clearFn();
+            otpGen = Math.floor(1000 + Math.random() * 9000);
+            const otpDisplay = document.getElementById('otpDisplay');
+            otpDisplay.innerHTML = `Generated OTP: <strong>${otpGen}</strong>`;
+            document.querySelector('.otp-form').style.display = 'block';
+            startTimer();
+        }
+
+        function OTPVerifyFn() {
+            const userOtp = document.getElementById('userOTP').value;
+            if (userOtp === "") {
+                alert("Please enter OTP.");
+                return;
+            }
+            const enterOtp = parseInt(userOtp);
+            if (!isNaN(enterOtp)) {
+                if (secondsRemaining > 0) {
+                    if (enterOtp === otpGen) {
+                        showSuccessMessage();
+                        document.getElementById('generateBtn').disabled = false;
+                        resetTimer();
+                        setTimeout(() => {
+                            window.location.href = 'index1.html'; // Replace with your desired URL
+                        }, 3000);
+                    } else {
+                        document.getElementById('errorMessage').innerText = 'Invalid OTP. Please try again.';
+                    }
+                } else {
+                    document.getElementById('errorMessage').innerText = 'OTP Expired. Please generate a new OTP.';
+                }
+            } else {
+                alert("Invalid OTP. Please try again.");
+            }
+        }
+
+        function clearFn() {
+            document.getElementById('otpDisplay').innerHTML = '';
+            resetTimer();
+            document.getElementById('errorMessage').innerText = '';
+            document.getElementById('userOTP').value = '';
+        }
+
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'flex';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        function startTimer() {
+            timer = setInterval(function () {
+                if (secondsRemaining <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('generateBtn').disabled = false;
+                    document.getElementById('errorMessage').innerText = 'OTP Expired. Please generate a new OTP.';
+                    resetTimer();
+                } else {
+                    document.getElementById('timer').innerText = `Time Remaining: ${secondsRemaining} seconds`;
+                    secondsRemaining--;
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            document.getElementById('timer').innerText = '';
+            secondsRemaining = 10;
+        }
+
+        
+    </script>
+</body>
+
+</html>

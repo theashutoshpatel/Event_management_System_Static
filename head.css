@@ -1,0 +1,274 @@
+ /* Banner Resposnive */
+/* Home section */
+.home {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.home .headline {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.home .headline span {
+  color: #FF6347;
+}
+
+/* Carousel image size */
+#d1 .carousel-item img {
+  height: 600px;
+  width: 800px;
+  object-fit: cover;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  /* Adjust home section headline font size */
+  .home .headline {
+    font-size: 30px;
+  }
+
+  .home .headline span {
+    font-size: 35px;
+  }
+
+  /* Carousel image size adjustments */
+  #d1 .carousel-item img {
+    height: 400px; /* Adjust height for smaller screens */
+    width: 100%;   /* Full width for smaller screens */
+  }
+
+  /* Hide carousel indicators on mobile */
+  .carousel-indicators {
+    display: none;
+  }
+
+  /* Hide carousel control buttons on mobile */
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce font size for headline */
+  .home .headline {
+    font-size: 26px;
+  }
+
+  .home .headline span {
+    font-size: 28px;
+  }
+
+  /* Further reduce carousel image height for very small screens */
+  #d1 .carousel-item img {
+    height: 300px;
+  }
+}
+
+
+ /* End  */
+/* Ensure heading text does not overlap */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff6347;
+    text-decoration: none;
+    animation: fadeInLogo 1.5s ease;
+  }
+  
+  .logo img {
+    display: inline-block;
+    animation: logoBounce 2s infinite;
+  }
+  
+  .logo span {
+    color: #333;
+  }
+  
+  @keyframes fadeInLogo {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes logoBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  .logo span {
+    background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(204,219,76,1) 100%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+    
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* padding: 10px; */
+    background: #f4f4f4;
+  }
+  
+  .home {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .content {
+    position: absolute;
+    top: 50%; /* Vertically center the content */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+    z-index: 1; /* Ensure the text stays on top */
+  }
+  
+  .headline {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    /* animation: slideIn 2s ease-in-out; */
+    line-height: 1.2; /* Add some spacing between lines */
+  }
+  
+  .headline span {
+    color: #f7bc00;  /* Bright yellow/orange color for emphasis */
+    animation: colorChange 3s infinite alternate;
+  }
+  
+  /* Animation for the headline text */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px) translateX(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) translateX(-50%);
+    }
+  }
+  
+  /* Color animation for the 'is a Masterpiece' part */
+  @keyframes colorChange {
+    0% {
+      color: #f7bc00;
+    }
+    50% {
+      color: #ff5c00;
+    }
+    100% {
+      color: #00b8f4;
+    }
+  }
+  
+  /* Styling for the carousel */
+  #d1 {
+    width: 100%;
+    height: 600px;
+  }
+  
+  .carousel-inner {
+    position: relative;
+    height: 100%;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease-out;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+  /* Loader of the page  */
+
+
+.infinity-loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(189, 169, 169, 0.093);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-out; 
+}
+
+.infinity-loader {
+  width: 100px;
+  height: 100px;
+  border: 16px solid transparent;
+  border-top: 16px solid red;
+  border-right: 16px solid green;
+  border-bottom: 16px solid blue;
+  border-left: 16px solid yellow;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: scale(1.5); 
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-top-color: red;
+    border-right-color: green;
+    border-bottom-color: blue;
+    border-left-color: yellow;
+  }
+  25% {
+    border-top-color: green;
+    border-right-color: blue;
+    border-bottom-color: yellow;
+    border-left-color: red;
+  }
+  50% {
+    border-top-color: blue;
+    border-right-color: yellow;
+    border-bottom-color: red;
+    border-left-color: green;
+  }
+  75% {
+    border-top-color: yellow;
+    border-right-color: red;
+    border-bottom-color: green;
+    border-left-color: blue;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-top-color: red;
+    border-right-color: green;
+    border-bottom-color: blue;
+    border-left-color: yellow;
+  }
+}
+
+  
+  

@@ -1,0 +1,157 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Form Section */
+.form-section {
+    padding: 50px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(2,0,36);
+    background: whitesmoke;
+}
+
+.form-container {
+    max-width: 600px;
+    color: white;
+    width: 100%;
+    background: #120f0f;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1.2s ease-in-out;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 3rem;
+}
+
+.form-container h2 span {
+    color: #0099cc;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ede5e5;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #0099cc;
+    box-shadow: 0 0 8px rgba(0, 153, 204, 0.3);
+}
+
+.input-group textarea {
+    resize: none;
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    background: #0099cc;
+    color: #ffffff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #007399;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+.email-popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  .email-popup-dialog {
+    max-width: 500px;
+    margin: auto;
+  }
+  .email-popup-content {
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .email-popup-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .email-popup-body {
+    padding: 15px;
+  }
+  .email-popup-footer {
+    text-align: right;
+    padding: 10px;
+  }
+  .email-popup-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }

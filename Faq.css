@@ -1,0 +1,76 @@
+body {
+    /* min-height: 100vh; */
+    /* max-width: 800px; */
+    margin: 0 auto;
+    /* padding: 10px; */
+    font-size: 20px;
+    /* background: #f5f5f5;      Light background color for overall page */
+  }
+  
+  .faq {
+    padding: 40px;
+    text-align: center;
+    border-radius: 1px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(341deg, #6b6d77, #363337);  /* Gradient background */
+  }
+  
+  .faq__title {
+    text-transform: uppercase;
+    color: #fff;  /* White text for the title */
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Animation for FAQ Title */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  details {
+    background-color: #efcbcb;  /* Soft light background for each question */
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 20px 30px;
+    margin-block: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+    transition: background-color 0.3s ease;
+  }
+  
+  details:hover {
+    background-color: #e1d8e0;  /* Light hover effect */
+  }
+  
+  summary,
+  p {
+    text-align: left;
+  }
+  
+  summary {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;  /* Dark color for the question text */
+    margin-inline-start: 1rem;
+  }
+  
+  summary::marker {
+    color: #8b7197;
+  }
+  
+  p {
+    color: #555;  /* Dark gray text for better readability */
+    margin-top: 10px;
+  }
+  
+  /* Optional: Add smooth transition when opening answers */
+  details[open] p {
+    transition: max-height 0.4s ease-out;
+  }
+  
