@@ -1,4 +1,4 @@
-# Responsive-Event-Organization-Website-in-HTML-CSS-JavaScript
+# Event Management System by Festiiv🤝
 ## Live preview of the webpage: https://theashutoshpatel.github.io/Event_management_System/
 Responsive Webpage you can open in Phone as well. 💻📱
 ## Login Page: 🔐📍 
@@ -74,5 +74,5 @@ The integration of a dynamic contact system ensures instant query handling.
 The live preview and real-time OTP system offer a seamless and interactive user experience.
 
 ## Future Enhancements ->  🚀
-Payment Gateway: Secure online payments to streamline the booking process.
-Admin Section: Allow administrators to dynamically update details like pricing, reviews, and service details.
+𝐏𝐚𝐲𝐦𝐞𝐧𝐭 𝐆𝐚𝐭𝐞𝐰𝐚𝐲: Secure online payments to streamline the booking process.
+𝐀𝐝𝐦𝐢𝐧 𝐒𝐞𝐜𝐭𝐢𝐨𝐧: Allow administrators to dynamically update details like pricing, reviews, and service details.
