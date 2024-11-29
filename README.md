@@ -1,5 +1,5 @@
 # Event Management System by Festiiv🤝
-## Live preview of the webpage: https://theashutoshpatel.github.io/Event_management_System/
+## Live preview of the webpage: (https://theashutoshpatel.github.io/Event_management_System_Static/)
 Responsive Webpage you can open in Phone as well. 💻📱
 ## Login Page: 🔐📍 
 The login page acts as the gateway to the event management system, ensuring secure access. Here’s how it works:
